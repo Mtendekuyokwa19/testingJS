@@ -1,13 +1,11 @@
 
-let reverse=require('../reverse');
-const { default: expect } = require('expect');
+const reverse=require('../reverse');
+const {default: expect} = require('expect');
 
-test("Otis to sitO",()=>{
+test('Otis to sitO', ()=>{
+  expect(reverse('Otis')).toMatch('sitO');
+});
 
-    expect(reverse("Otis")).toMatch("sitO")
-})
-
-test("jack to kcaj",()=>{
-
-    expect(reverse("jack")).toMatch("kcaj")
-})
+test('jack to kcaj', ()=>{
+  expect(reverse('jack')).toMatch('kcaj');
+});
