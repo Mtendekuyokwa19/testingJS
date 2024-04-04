@@ -1,5 +1,5 @@
 
-var reverse=require('../reverse');
+let reverse=require('../reverse');
 const { default: expect } = require('expect');
 
 test("Otis to sitO",()=>{
