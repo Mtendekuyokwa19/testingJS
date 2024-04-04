@@ -1,11 +1,11 @@
 
 
 function capitalize(word){
-    let wordArray=word.split("");
-    wordArray[0].toUppercase();
-   word= wordArray.join("");
-
-    return word
+word=word.split("");
+word[0]=word[0].toUpperCase();
+word=word.join('');
+return word
 }
 
-module.export=capitalize;
+
+module.exports={capitalize};
