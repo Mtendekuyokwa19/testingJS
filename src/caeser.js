@@ -7,10 +7,13 @@ let caeser=(()=>{
     let encryptedVersion=[];
     function cipher(word,shiftKey) {
     moveByShiftKey(shiftKey);
-
+    
     }
     
-  
+    function equivalentLetter(word,shiftKey){
+        
+
+    }
 
     function moveByShiftKey(shiftKey){
    
