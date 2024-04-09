@@ -1,4 +1,4 @@
-# testingJS
+# Test Driven Development Project 
 
 ## Short Description
 
@@ -44,7 +44,7 @@ This project is a composition of mini-tasks.
 
     ```bash
         git clone git@githubcom:Mtendekuyokwa19/testingJS.git
-     ``
+     ```
 
 2. Run npm install
 
