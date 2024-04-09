@@ -1,17 +1,26 @@
+const { SourceStore } = require("istanbul-lib-source-maps");
+
+
 let caeser=(()=>{
 
-    let alphabet="ABCDEFFGHIJKLMNOPQRSTUVWXYZ".split('');
-    let encryptedVersion=alphabet;
+    let alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+    let encryptedVersion=[];
     function cipher(word,shiftKey) {
-    
-    }
-    
-    function equivalentLetter(letter,shiftKey){
+    moveByShiftKey(shiftKey);
 
     }
+    
+  
 
     function moveByShiftKey(shiftKey){
+   
+       
+        let cutElement=alphabet.slice(0,shiftKey);
+  let remainingElements=alphabet.slice(shiftKey,alphabet.length)
 
+      encryptedVersion=(remainingElements.concat(cutElement))
+
+      return encryptedVersion.toString()
     }
 
     function checkIfIsArray(array){
@@ -22,6 +31,7 @@ let caeser=(()=>{
 
 return {cipher,equivalentLetter,checkIfIsArray,moveByShiftKey}
 })()
+
 
 
 module.exports=caeser;

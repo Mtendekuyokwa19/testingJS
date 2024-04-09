@@ -13,6 +13,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@types/jest": "^29.5.12",
     "ansi-escapes": "^4.3.2",
     "ansi-regex": "^5.0.1",
     "ansi-styles": "^4.3.0",
