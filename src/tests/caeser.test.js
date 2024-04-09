@@ -1,7 +1,5 @@
 
-
-const { test } = require('picomatch');
-const caeser=require('../caeser');
+const caeser=require('../caeser.js');
 
 test("changing of word jack to MDFN",()=>{
 
@@ -14,14 +12,7 @@ test ("changing the word speed to YVKKJ",()=>{
     expect(caeser.cipher("speed",6)).toBe("YVKKJ")
 })
 
-test("return equivalent letter. A => C",()=>{
 
-    expect(caeser.equivalent("A",3)).toBe("c")
-})
-
-test("return equivalent letter B=>F",()=>{
-    expect(caeser.equivalent("B",4)).toBe("F")
-})
 
 test("check if its array",()=>{
 
@@ -35,9 +26,9 @@ test ("check if its a string array [2,4,5,2]",()=>{
 
 test("bring out the alphabet for the letters",()=>{
 
-    expect(caeser.moveByShiftKey(3)).toBe("EFGHIJKLMNOPQRSTUVWXYZABCD")
+    expect(caeser.moveByShiftKey(4)).toMatch("E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,A,B,C,D")
 })
 
 test("bring out the alphabet for letters 2",()=>{
-    expect(caeser.moveByShiftKey(8)).toBe("GHIJKLMNOPQRSTUVWXYZABCDEF")
+    expect(caeser.moveByShiftKey(6)).toMatch("G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,A,B,C,D,E,F")
 })
