@@ -14,4 +14,4 @@ function divide(numerator, denominator) {
   return numerator / denominator;
 }
 
-module.exports = { multiply, divide, subtract, add };
+module.exports = {multiply, divide, subtract, add};

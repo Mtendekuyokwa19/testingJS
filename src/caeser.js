@@ -1,61 +1,53 @@
-const { SourceStore } = require("istanbul-lib-source-maps");
+/* eslint-disable require-jsdoc */
+const caeser = (() => {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  let encryptedVersion = [];
 
-
-let caeser=(()=>{
-
-    let alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-    let encryptedVersion=[];
-    function cipher(word,shiftKey) {
-        let cipherWord="";
-         word=word.split("");
-        word.forEach(character => {
-    if(isAlpha(character)){
-        cipherWord+=equivalentLetter(character,shiftKey)
-    }
-    else{
-        cipherWord+=character;
-    }
-    
-});
+  function cipher(word, shiftKey) {
+    let cipherWord = '';
+    word = word.split('');
+    word.forEach((character) => {
+      if (isAlpha(character)) {
+        cipherWord += equivalentLetter(character, shiftKey);
+      } else {
+        cipherWord += character;
+      }
+    });
     return cipherWord;
+  }
+
+  function equivalentLetter(letter, shiftKey) {
+    moveByShiftKey(shiftKey);
+    for (let index = 0; index < alphabet.length; index++) {
+      if (letter === alphabet[index]) {
+        return encryptedVersion[index];
+      }
     }
-    
-    function equivalentLetter(letter,shiftKey){
-        moveByShiftKey(shiftKey);   
-        for (let index = 0; index < alphabet.length; index++) {
-            if (letter===alphabet[index]) {
-                
-                return encryptedVersion[index]
-            }
-            
-        }
+  }
+
+  function moveByShiftKey(shiftKey) {
+    const cutElement = alphabet.slice(0, shiftKey);
+    const remainingElements = alphabet.slice(shiftKey, alphabet.length);
+
+    encryptedVersion = remainingElements.concat(cutElement);
+
+    return encryptedVersion.toString();
+  }
+
+  function checkIfIsArray(array) {
+    return Array.isArray(array);
+  }
+  function isAlpha(character) {
+    if (
+      (character.charCodeAt(0) >= 65 && character.charCodeAt(0) <= 90) ||
+      (character.charCodeAt(0) >= 97 && character.charCodeAt(0) <= 122)
+    ) {
+      return true;
     }
+    return false;
+  }
 
-    function moveByShiftKey(shiftKey){
-   
-       
-        let cutElement=alphabet.slice(0,shiftKey);
-  let remainingElements=alphabet.slice(shiftKey,alphabet.length)
+  return {cipher, equivalentLetter, checkIfIsArray, moveByShiftKey, isAlpha};
+})();
 
-      encryptedVersion=(remainingElements.concat(cutElement))
-
-      return encryptedVersion.toString()
-    }
-
-    function checkIfIsArray(array){
-
-        return Array.isArray(array)
-    }
-function isAlpha(character) {
-    if((character.charCodeAt(0)>=65&&character.charCodeAt(0)<=90)||character.charCodeAt(0)>=97&&character.charCodeAt(0)<=122){
-        return true
-    }
-    return false
-}
-
-return {cipher,equivalentLetter,checkIfIsArray,moveByShiftKey,isAlpha}
-})()
-
-
-
-module.exports=caeser;
+module.exports = caeser;
